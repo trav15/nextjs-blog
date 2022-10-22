@@ -21,7 +21,6 @@ export default function Home({ allPostsData }) {
   const { data, error } = useSWR('http://localhost:3000/api/hello', fetcher);
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
-  console.log(data)
 
   return (
     <Layout home>
@@ -30,12 +29,11 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>"It's only a model..."</p>
+        <br />
+        <h2>Here's a little piece of advice:</h2>
         <p>{data.text}</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
       </section>
+      <br />
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
